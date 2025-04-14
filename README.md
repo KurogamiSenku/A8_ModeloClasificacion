@@ -4,7 +4,7 @@ Esta es una aplicación desarrollada en Python con Flask para predecir la calida
 
 ## ¿Cómo usar la aplicación?
 
-1. **Abrir la aplicación Flask**: Ejecuta el archivo `app.py` usando `python app.py`.
+1. **Abrir la aplicación Flask**: Ejecuta el archivo `app.py` usando `py app.py`.
 
 2. **Subir archivo de datos**:
    - Haz clic en el botón "Seleccionar archivo".
@@ -32,6 +32,3 @@ Esta es una aplicación desarrollada en Python con Flask para predecir la calida
 - Asegúrate de que los nombres de las columnas coincidan exactamente.
 - No dejes celdas vacías en el archivo Excel.
 - Usa valores numéricos en las columnas de entrada.
-
-## Créditos
-Proyecto para la asignatura de Machine Learning, semestre 6 de Ingeniería de Sistemas y Computación.
