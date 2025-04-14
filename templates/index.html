@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predicción Calidad del Vino</title>
+</head>
+<body>
+    <h2>Subir archivo Excel para predicción</h2>
+    <form action="/predecir" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".xlsx" required>
+        <button type="submit">Predecir</button>
+    </form>
+</body>
+</html>
