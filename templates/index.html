@@ -3,25 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <title>Clasificador de Calidad del Vino</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-</head>
-<body class="p-4">
-    <div class="container">
-        <h1 class="mb-4">🍷 Clasificador de Calidad del Vino</h1>
-        
-        <form action="/clasificar" method="post" enctype="multipart/form-data" class="mb-3">
-            <div class="mb-3">
-                <label for="file" class="form-label">Subir archivo Excel (.xlsx):</label>
-                <input type="file" name="file" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Clasificar</button>
-        </form>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://www.dondeir.com/wp-content/uploads/2021/11/vinedos-con-hotel.jpg') no-repeat center center fixed;
+            background-size: cover;
+            backdrop-filter: blur(4px);
+        }
 
-        {% if tabla %}
-            <h3>Resultados:</h3>
-            {{ tabla|safe }}
-            <a href="/descargar" class="btn btn-success mt-3">Descargar resultados</a>
-        {% endif %}
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .decor {
+            font-size: 1.8rem;
+            color: #4caf50;
+        }
+
+        .btn i {
+            margin-right: 5px;
+        }
+
+        .corner-plant {
+            position: absolute;
+            width: 80px;
+            opacity: 0.6;
+        }
+
+        .plant-top-left {
+            top: 10px;
+            left: 10px;
+            transform: rotate(-20deg);
+        }
+
+        .plant-bottom-right {
+            bottom: 10px;
+            right: 10px;
+            transform: rotate(15deg);
+        }
+    </style>
+</head>
+<body>
+    <img src="https://png.pngtree.com/png-vector/20231215/ourmid/pngtree-grape-autumn-hand-drawn-fruit-elements-png-image_11366355.png" class="corner-plant plant-top-left" />
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/046/320/088/small/wine-bottle-with-glass-and-grapes-on-transparent-background-png.png" class="corner-plant plant-bottom-right" />
+
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="overlay w-100" style="max-width: 600px;">
+            <h1 class="mb-4 text-center text-danger">
+                <span class="decor">🌿</span> Clasificador de Calidad del Vino <span class="decor">🌿</span>
+            </h1>
+
+            <form action="/clasificar" method="post" enctype="multipart/form-data" class="mb-3">
+                <div class="mb-3">
+                    <label for="file" class="form-label">Subir archivo Excel (.xlsx):</label>
+                    <input type="file" name="file" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="bi bi-search"></i> Clasificar
+                </button>
+            </form>
+
+            {% if tabla %}
+                <div class="mt-4">
+                    <h3 class="text-center">Resultados:</h3>
+                    {{ tabla|safe }}
+                    <a href="/descargar" class="btn btn-success w-100 mt-3">
+                        <i class="bi bi-download"></i> Descargar resultados
+                    </a>
+                </div>
+            {% endif %}
+        </div>
     </div>
 </body>
 </html>
