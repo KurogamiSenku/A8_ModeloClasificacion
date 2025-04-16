@@ -43,7 +43,7 @@ def clasificar():
     # Verificar que tenga las columnas esperadas
     columnas_esperadas = ['acidez', 'alcohol', 'azucar_residual']
     if not all(col in df.columns for col in columnas_esperadas):
-        return "❌ El archivo debe tener las columnas: acidez, alcohol, azucar_residual"
+        return "El archivo debe tener las columnas: acidez, alcohol, azucar_residual"
 
     # Clasificar
     predicciones = modelo.predict(df[columnas_esperadas])
